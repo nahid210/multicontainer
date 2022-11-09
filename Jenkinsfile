@@ -28,9 +28,11 @@ pipeline {
             	   sudo docker compose up
 		   
                 """
-    }
-        }		    
-         stage('Unit Test) {
+      }
+          }
+	    
+      }
+         stage('Unit Test') {
             steps { 
                 sh """
             	   php artisan make:test UserTest --unit
