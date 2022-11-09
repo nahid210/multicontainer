@@ -9,7 +9,7 @@ pipeline {
             steps {
             	sh """
                    
-                   https://github.com/nahid210/multicontainer
+                git clone https://github.com/nahid210/multicontainer
             	"""
 
             }
