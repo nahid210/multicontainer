@@ -9,23 +9,16 @@ pipeline {
             steps {
             	sh """
                    rm -fr glueship
-                   git clone https://github.com/nahid210/glueship
+                   https://github.com/nahid210/multicontainer
             	"""
 
-            }
-        }
-        stage('Docker image Build') {
-            steps {
-            	sh """
-                    docker build -t nginxtest:v1.00 .
-            	"""
             }
         }
 
         stage('Docker container creation') {
             steps { 
                 sh """
-            	   docker run -d --name glueshiptest --restart always -p 8088:80 nginxtest:v1.00 
+            	   sudo docker compose up
                 """
             }
         }
