@@ -8,7 +8,7 @@ pipeline {
 		stage('Git clone') {
             steps {
             	sh """
-                   rm -fr glueship
+                   
                    https://github.com/nahid210/multicontainer
             	"""
 
