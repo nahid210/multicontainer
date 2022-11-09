@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'glueship'
+        label 'multi'
     }
 
     stages {
@@ -20,24 +20,7 @@ pipeline {
                 sh """
             	   sudo docker compose up
                 """
-            }
-        }
-    }
-
-    post {
-        success {
-            script {
-				sh """
-					echo "This is success"
-				"""
-
-            }
-        }
-        failure {
-            script {
-				sh """
-					echo "This is failed"
-				"""
+            
             }
         }
 
