@@ -26,7 +26,7 @@ pipeline {
             steps { 
                 sh """
             	   sudo docker compose up
-		   
+		   docker ps -a
                 """
       }
           
