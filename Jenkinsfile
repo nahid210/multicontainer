@@ -32,14 +32,7 @@ pipeline {
           
 	    
       }
-         stage('Unit Test') {
-            steps { 
-                sh """
-            	   php artisan make:test UserTest --unit
-		   
-                """
-            }
-        }
+
 
     }
 }
