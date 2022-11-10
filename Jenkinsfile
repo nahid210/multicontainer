@@ -33,7 +33,7 @@ pipeline {
                 """
 			}   
 		}
-        stage ('container stop and remove') {
+        stage ('Unit Test') {
             steps {
                 sh 'docker exec  glue-backend ls -la'
                 sh 'docker exec  -it glue-backend php artisan make:test UserTest --unit'
