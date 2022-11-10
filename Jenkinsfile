@@ -25,8 +25,8 @@ pipeline {
         stage('Docker container creation') {
             steps { 
                 sh """
-            	   sudo docker compose up
-		   docker ps -a
+            	   sudo docker compose up -d
+		   docker ps
                 """
       }
           
