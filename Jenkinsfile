@@ -37,8 +37,8 @@ pipeline {
             steps {
 		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 sh 'docker exec  glue-backend ls -la'
-                sh 'docker exec  glue-backend php artisan test'
-                sh 'docker exec  glue-backend php artisan test --testsuite=Unit --stop-on-failure'
+                sh 'docker exec  -T glue-backend php artisan test'
+                sh 'docker exec  -T glue-backend php artisan test --testsuite=Unit --stop-on-failure'
 		sh "exit 1"
 		}
             }
