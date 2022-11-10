@@ -40,6 +40,7 @@ pipeline {
                 sh 'docker exec  glue-backend php artisan test'
                 sh 'docker exec  glue-backend php artisan test --testsuite=Unit --stop-on-failure'
 		sh "exit 1"
+		}
             }
         }
     }
