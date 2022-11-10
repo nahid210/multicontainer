@@ -36,7 +36,7 @@ pipeline {
         stage ('Unit Test') {
             steps {
                 sh 'docker exec  glue-backend ls -la'
-                sh 'docker exec  -it glue-backend php artisan make:test UserTest --unit'
+                sh 'docker exec  -it glue-backend php artisan test'
                 sh 'docker exec  -it glue-backend php artisan test --testsuite=Unit --stop-on-failure'
             }
         }
