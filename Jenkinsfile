@@ -11,14 +11,12 @@ pipeline {
         HOME_DIR = "/opt/lampp/htdocs/workspace/"
       }
     stages {
-	
 	stage('Git clone') {
             steps {
             	sh """
                 rm -fr multicontainer
                 git clone https://github.com/nahid210/multicontainer
             	"""
-
             }
         }
 	stage ('container stop and remove') {
@@ -33,9 +31,9 @@ pipeline {
             	   sudo docker compose up -d
 		   docker ps
                 """
-      }   
-      }
-       stage ('container stop and remove') {
+			}   
+		}
+        stage ('container stop and remove') {
             steps {
                 sh 'docker exec  glue-backend ls -la'
                 sh 'docker exec  -it glue-backend php artisan make:test UserTest --unit'
