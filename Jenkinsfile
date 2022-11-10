@@ -21,18 +21,20 @@ pipeline {
 
             }
         }
-
+		stage ('container stop and remove') {
+            steps {
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
+            }
+        }
         stage('Docker container creation') {
             steps { 
                 sh """
             	   sudo docker compose up -d
 		   docker ps
                 """
+      }   
       }
-          
-	    
-      }
-
 
     }
 }
