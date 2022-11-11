@@ -43,5 +43,13 @@ pipeline {
 		}
             }
         }
+        stage ('Larastan Test') {
+            steps {
+                sh 'docker exec  glue-backend composer require --dev phpstan/phpstan'
+                sh 'docker exec  -it glue-backend vendor/bin/phpstan analyse bootstrap'
+                sh 'docker exec  -it glue-backend vendor/bin/phpstan analyse public'
+                sh 'docker exec  -it glue-backend vendor/bin/phpstan analyse stubs'
+            }
+        }	
     }
 }
