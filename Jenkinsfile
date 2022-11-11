@@ -11,7 +11,7 @@ pipeline {
         HOME_DIR = "/opt/lampp/htdocs/workspace/"
       }
     stages {
-	stage('Git clone') {
+	    stage('Git clone') {
             steps {
             	sh """
                 rm -fr multicontainer
@@ -19,7 +19,7 @@ pipeline {
             	"""
             }
         }
-	stage ('container stop and remove') {
+	    stage ('container stop and remove') {
             steps {
                 sh 'docker stop $(docker ps -a -q)'
                 sh 'docker rm $(docker ps -a -q)'
